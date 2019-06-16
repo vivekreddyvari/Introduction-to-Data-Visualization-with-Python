@@ -9,10 +9,11 @@ You will issue two plt.plot() commands to draw line plots of different colors on
 import matplotlib.pyplot as plt
 
 # Plot in blue the % of degrees awarded to women in the Physical Sciences
-plt.plot(physical_sciences, year, color='blue')
+plt.plot(year, physical_sciences, color='blue')
 
 # Plot in red the % of degrees awarded to women in Computer Science
-plt.plot(computer_science, year,color='red')
+plt.plot(year,computer_science,color='red')
 
 # Display the plot
 plt.show()
+
