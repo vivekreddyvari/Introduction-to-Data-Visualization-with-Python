@@ -1,0 +1,55 @@
+Plotting multiple graphs
+ - Introduction to data-visualization with python 
+ -- by Bryan van de Ven (core bokeh developer)
+
+
+ - Plotting multiple graphs
+ - Strategies
+  1. Plotting many graphs on common axes
+  2. creating axes within a figure
+  3. creating subplots within a figure
+
+Graph on common axes:
+3 - numpy array
+T for Time
+Temperature & Dew-point
+
+simple graph demonstration with list of steps
+
+# the graph appears to one
+
+import matplotlib.pyplot as plt			 # pulls the graphical dict-packages for plots
+plt.plot(t, temperature, 'r')			 # columns temperature
+plt.plot(t, dewpoint, 'b')				 # appears on same axes
+plt.xlabel('Date')						 # xlabel, ylabel like x-axis, y-axis
+plt.title('Temperature & Dew Point')	 # title is 'Temperature and Dew Point'
+plt.show()					   			 # to show the graph.
+
+Using axes()
+-  the axes() command 
+-  syntax : axes([x_lo, y_lo, width, height])
+-  Units between 0 and 1 (figure dimensions)
+Using subplot()
+ - Subplot command frees from figuring out axis, the package finds itself which plot to use
+ - at one 
+ - at side-by-side
+
+plt.subplot(2,1,1)
+plt.plot(t, temperature, 'r')
+plt.xlabel('Date')
+plt.title('Temperature')
+
+plt.subplot(2,1,1)
+plt.plot(t, dewpoint, 'b')
+plt.xlabel('Date')
+plt.title('Dew Point')
+
+plt.tight_layout() # without spaces and looks tight
+plt.show()
+
+Subplot()
+- syntax: subplot(nrows, ncols, nsubplot)
+- subplot ordering 
+	- row-wise from top left
+	- indexed from 1
+	
