@@ -1,0 +1,55 @@
+Customizing axes:
+
+Controlling the axes limits:
+- axis([xmin, xmax, ymin, ymax]) set axis extents
+- Control over the individual axis extents
+ 	- xlim([xmin, xmax])
+ 	- ylim([ymin, ymax])
+- Can use tuples, lists for extents
+	e.g. xlim((-2,3)) works
+	e.g. xlim([-2,3]) also works
+	
+GDP over time
+
+import matplotlib.pyplot as plt
+plt.plot(yr,gdp)
+plt.xlabel('Year')
+plt.ylabel('Billions of Dollars')
+plt.title('US Gross Domestic Product')
+plt.show()
+
+if you want see the specific period of years 
+then xlim([xmin, xmax]) can be use
+
+import matplotlib.pyplot as plt
+plt.plot(yr,gdp)
+plt.xlabel('Year')
+plt.ylabel('Billions of Dollars')
+plt.title('US Gross Domestic Product')
+plt.xlim((1947, 1957))
+# only xlim will not give great result, use ylim too
+plt.ylim((0, 1000))
+# using axis instead xlim, ylim
+plt.axis((1947, 1957, 0, 600))
+
+# other axis optons
+#	Invocation		Result
+#	axis('off')		turnoff axis lines, labels
+#	axis('equal')	equal scaling on x, y axes
+#	axis('square')	force square plot
+#	axis('tight')	set xlim(), ylim(), to show all data
+
+plt.show()
+
+# Using axis('equal') 
+plt.subplot(2,1,1)
+plt.plot(x, y, 'red')
+plt.title('default axis')
+plt.subplot(2,1,2)
+plt.plot(x,y,'red')
+plt.axis('equal')
+plt.title('axis equal')
+plt.tight_layout()
+plt.show()
+plt.savfig()
+
