@@ -1,0 +1,68 @@
+Chapter 2.1
+
+Visualizing bivariate functions
+
+import numpy as np
+import matplotlib.pyplot as plt
+  
+u = np.linspace(-2,2,65)
+v = np.linspace(-1,1,33)
+X,Y = np.meshgrid(u, v)
+Z = X**2/25 + Y**2/4
+ 
+print('Z:\n', Z)
+#plt.set_cmap('grayscale')
+fig = plt.figure()
+plt.pcolor(Z)
+fig.savefig('ploting1.png')
+plt.show()
+
+observations:
+
+ - pcolor means pseudo-color
+
+# Understanding colors
+
+plt.pcolor(Z)
+plt.colorbar()
+plt.show()
+
+Black and white
+
+# cmap changes the color to B&W
+
+plt.pcolor(Z, cmap='gray')
+plt.colorbar()
+plt.show()
+
+#cmap with different colors 'autumn'
+
+#to fix the empty-space around the pcolor-plot, use plt.axis()
+plt.pcolor(Z, cmap='gray')
+plt.colorbar()
+plt.axis('tight')
+plt.show()
+
+# plotting using meshgrid
+
+plt.pcolor(X,Y,Z)
+plt.colorbar()
+plt.show
+
+
+# contour plots, which are represented as outlined.
+plt.contour(Z)
+plt.show()
+
+# More Contours
+plt.contour(Z, 30)
+
+# Contour plot using Mesh-grid
+plt.contour(X, Y, Z, 30)
+plt.show()
+
+# Contourf -filled contour plots
+plt.contourf(X,Y,Z, 30)
+plt.show()
+
+
