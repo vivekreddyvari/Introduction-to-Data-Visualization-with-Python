@@ -1,0 +1,52 @@
+Seaborn
+
+Chapter 3
+Visualizing regressions
+
+Seaborn - library for statistical data visualization 
+ - created by micheal waskom
+ - seaborn is built on matplotlib
+ - seaborn works faster with pandas
+
+recap on pandas
+ - pandas are shared dataframes
+ - have shared row labels called index
+ - have columns
+ - columns or pandas series
+
+linear regression plots
+-  using implot()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+tips = sns.load_dataset('tips') # tips dataset from seaborn
+sns.lmplot(x='total_bill', y='tip', data=tips)
+plt.show()
+
+factors within categories
+- have to plot things differently
+
+#grouping factors (same plot)
+# to show the sex - female, male in two colors
+# seaborn can make ease to show the color factors for distinguishing different colors
+
+Using hue = 
+sns.lmplot(x='totat_bill', y='tip', data=tips, hue='sex', palette='Setl')
+plt.show()
+
+# grouping using subplots
+Using col=
+sns.lmplot(x='totat_bill', y='tip', data=tips, col='sex')
+plt.show()
+
+#residual plots
+# how much the data misses the central-plot line
+# we can use method known as residplot()
+
+sns.residplot(x='age', y='fare', data=df, color='indianred')
+plt.show()
+similar to lmplot, however it is more simple
+ -  x,y be arrays or strings
+ - data is dataframe 
+ - optional argument (color)
