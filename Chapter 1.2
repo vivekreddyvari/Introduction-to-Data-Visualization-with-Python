@@ -1,0 +1,78 @@
+Chapter 1.2
+Legends, annotations and styles.
+
+Legends
+ - provide labels for overlaid points and curves
+ - are in box and help readers to distinguish
+
+Using legend()
+- example, to describe the usage of legend on 3 types of flowers
+- setosa
+- versicolor
+- virginica
+
+import matplotlib.pyplot as plt
+plt.scatter(setosa_len, setosa_wid, marker='0', color='red', label='setosa')
+plt.scatter(versicolor_len, versicolor_wid, marker='0', color='red', label='versicolor')
+plt.scatter(virginica_len, virginica_wid, marker='0', color='red', label='virginica')
+
+#using legend
+plt.legend(loc='upper right')
+plt.title('Iris Data')
+plt.xlabel('sepal length (cm)')
+plt.ylabel('sepal length (cm)')
+plt.show()
+
+legendlocations
+	string 				code
+	'upper left'		2
+	'center left'		6
+	'lower left'		3	
+	'best'				0
+	'upper center'		9
+	'center'			10
+	'lower center'		8
+	'upper right'		1
+	'center right'		7
+	'lower right'		4
+	'right'				5
+	
+# using annotate()
+- annotation functions add text to the field.
+- Text labels and arrows using annotate() method
+- keyword: arrowprops : used for customization of arrows
+	- width
+	- color
+# plot annotate()
+e.g.
+plt.annotate('setosa', xy=(5.0, 3.5))
+plt.annotate('virginica', xy=(7.25, 3.5))
+plt.annotate('versicolor', xy=(5.0, 3.0))
+plt.show()
+
+# annotate() options
+
+	option			description
+	s				text of label
+	xy				coordinates to annotate
+	xytext			coordinates of label
+	arrowprops		controls drawing of arrow
+	
+# e.g of code
+
+plt.annotate('setosa', xy=(5.0, 3.5), xytext=(4.25, 4.0), arrowprops={'color':'red'})
+plt.annotate('virginica', xy=(7.25, 3.5)xytext=(6.5, 4.0), arrowprops={'color':'blue'})
+plt.annotate('versicolor', xy=(5.0, 3.0)xytext=(5.5, 1.75), arrowprops={'color':'green'})
+plt.show()
+
+working with plot styles
+-------------------------
+style sheets in matplotlib
+default for lines, points, backgrounds, etc
+switch styles globally with plt.style.use()
+plt.style.available() : list of styles
+
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+
+plt.stype.use('fivethirtyeight')
