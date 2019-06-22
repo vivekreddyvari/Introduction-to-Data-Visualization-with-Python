@@ -1,0 +1,41 @@
+Visualize bivariate distributions:
+ - Distribution of 2D points
+ 	- Goal:generate a 2D histogram from x & y
+ 	- 2D points given as two 1-D arrays x & y
+ 
+# Histogram (1D)
+  - bins to distribute the sets of columsn or points in a data
+  - count realizations with bins & plot
+
+counts, bins, patches = plt.hist(x, bins=20)
+plt.show()
+
+# Bins in 2-D (array)
+
+ - Bins are different in 2-D arrays
+ - common choices : rectangles and hexagons
+
+# hist2d() : Rectangular binning
+# matplotlib functions requires two cooridinates (x,y)
+
+plt.hist2d(x, y, bins=(10,20)) # x and y are 1D arrays of same length
+plt.colorbar()
+plt.xlabel('weight ($mathrm{kg}$)')
+plt.ylabel('accerlation ($mathrm{kg}$)')
+plt.show()
+
+#hexbin() : Hexagonal function
+
+plt.hexbin(x, y, gridsize=(15,10)) # x and y are 1D arrays of same length
+plt.colorbar()
+plt.xlabel('weight ($mathrm{kg}$)')
+plt.ylabel('accerlation ($mathrm{kg}$)')
+plt.show()
+
+In matplotlib, one function to visualize 2-D histograms is plt.hist2d().
+
+You specify the coordinates of the points using plt.hist2d(x,y) assuming x and y are two vectors of the same length.
+You can specify the number of bins with the argument bins=(nx, ny) where nx is the number of bins to use in the horizontal direction and ny is the number of bins to use in the vertical direction.
+You can specify the rectangular region in which the samples are counted in constructing the 2D histogram. The optional parameter required is range=((xmin, xmax), (ymin, ymax)) where
+xmin and xmax are the respective lower and upper limits for the variables on the x-axis and
+ymin and ymax are the respective lower and upper limits for the variables on the y-axis. Notice that the optional range argument can use nested tuples or lists.
