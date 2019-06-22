@@ -1,0 +1,52 @@
+Working with images
+ - Images
+ - an images in matrix of intensity values
+ - Grayscale images: 2D rectangular array
+ - Color images : are stored as 3D arrays
+  	- RGB(Red-Green-Blue)
+ - Channel values:
+ 	- 0 to 1 (floating point numbers)
+ - 0 to 255 (8 bit integers)
+
+matplotlib images functions
+
+imread - to read a image
+img = plt.imread('Sunflower.jpg')
+print(img.shape) #shape of the image
+plt.imshow(img) # to show the image
+plt.axis('off')
+plt.show() # to show the picture
+
+# reduction to grey-scale image
+- average the rgb - levels
+- by apply the mean method to the axis=2
+
+# e.g.
+collapsed = img.mean(axis=2)
+print(collapsed.shape)
+
+plt.set_cmap('gray')
+plt.imshow(collapsed, cmap='gray')
+plt.axis('off')
+plt.show()
+
+# uneven samples (by the pixels by every fourth row)
+
+uneven = collapsed[::4, ::2] #no uniform sub-sampling, ::4 refers to every fourth element, ::2 refers to every 2 element
+# key word is aspect ration changes
+print(uneven.shape)
+plt.imshow(uneven)
+plt.axis('off)
+plt.show()
+
+# adjusting aspect ratio
+plt.imshow(uneven, aspect=2.0)
+plt.axis('off')
+plt.show()
+
+# adjusting extent
+
+plt.imshow(uneven, cmap='gray', extent=(0,640,0,480))
+plt.axis('off')
+plt.show()
+
