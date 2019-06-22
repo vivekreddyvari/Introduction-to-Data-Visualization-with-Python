@@ -1,0 +1,48 @@
+Chapter 2
+ - Working with 2D-Arrays
+ - Numpy arrays
+ 	* Homogeneous in type
+ 	* calculations at once
+ 	* Indexing with brackets
+ 		- A[index] for 1-D array
+ 		- A[index0, index1] for 2-D array
+
+Reminder : Slicing arrays
+ - [] a slice is type of array
+ - A[slice1] . 2d A[Slice0, Slice1]
+ - Slicing = slice = start:stop:stride
+    stride = (in terms of array. computer science, the number to start and to end from)
+    stride tells us in which intervals to slice
+     - Missing start, implicitliy at the endo of the array
+     - missing stop, implicitly at the end of the array
+     - stride, at intervals of slicing
+ - Negative indices of strides, we can count back-wards
+ - 
+ 
+ 2D arrays and images
+ Using meshgrid()
+ 
+ e.g.
+ import numpy as np
+ u = np.linespace(-2,2,3)
+ v = np.linespace(-1,1,5)
+ X,Y = np.meshgrid(u, v)
+ Z = X**2/25 + Y**2/4
+ 
+  import numpy as np
+  import matplotlip.pyplot as plt
+  
+ u = np.linespace(-2,2,3)
+ v = np.linespace(-1,1,5)
+ X,Y = np.meshgrid(u, v)
+ Z = X**2/25 + Y**2/4
+ 
+ print('Z:\n', Z)
+ plt.set_cmap('grayscale')
+ plt.pcolor(Z)
+ plt.show()
+ 
+ 
+ 
+ 
+ 
