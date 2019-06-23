@@ -1,0 +1,48 @@
+Chapter 3.2 
+
+Visualize Bi-variate, Multi-variate data
+Bivariate  - 'Two variable'
+Multivariate - 'multiple variates'
+
+Visualisation relationships in multivariate data
+ - Join Plots
+ - Pair plots
+ - Heat Maps
+
+# Joint-Plot
+ - used to distinguish the plot jointly (scatter and histogram)
+ - give the visualisation of two different variables in two different manners
+
+# jointplot()
+sns.jointplot(x = 'total_bill', y='tip', data=tips)
+plt.show()
+
+using KDE (kernel density estimation)
+ - results in smooth and contour plots
+
+# jointplot with KDE
+
+sns.jointplot(x = 'total_bill', y='tip', data=tips, kind='kde')
+plt.show()
+
+# Pair plots
+- joins the pairs category wise
+- total bill vs size plot
+
+sns.pairplot(tips)
+plt.show()
+
+where tips is the dataframe
+
+# Using pairplot() with hue
+sns.pairplot(tips, hue='sex')
+
+# covariance heatmap 
+# Using heatmap()
+sns.heatmap(covariance)
+plt.title('Covariance Plot')
+plt.show()
+
+
+
+
