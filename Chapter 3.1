@@ -1,0 +1,83 @@
+Chapter 3.2 
+Visualizing Uni-variate distributions.
+ - Univariate - one variable
+Visualiztion techniques for sample uni-variate data
+ - strip plots
+ - swarm plots
+ - violin plots
+ - box plots
+
+# Strip plot
+ - draws a visualization on number line to show the random single-variable
+
+# Using strip plot
+
+sns.stripplot(y='tip', data=tips)
+plt.ylabel('tip($)')
+plt.show()
+
+Grouping with  stripplot()
+sns.stripplot(x='day', y='tip', data=tip)
+plt.ylabe('tip($)')
+plt.show()
+
+#disadvantages 
+- if there are nearing values, at large, then it plot are drawn on each other making less visible
+
+Spreading out strip plots
+- use jitter and size
+
+sns.stripplot(x='day', y='tip', data=tip, size=4, jitter=True)
+plt.ylabe('tip($)')
+plt.show()
+
+#disadvantages  
+
+# swarm plot
+sns.swarmplot(x='day', y='tip', data=tip)
+plt.ylabe('tip($)')
+plt.show()
+
+when to use when not
+- when there are more similar samples
+- to group with color e.g. sex of the people (by using argument hue)
+
+sns.swarmplot(x='day', y='tip', data=tip, hue='sex')
+plt.ylabe('tip($)')
+plt.show()
+
+# changing the orientation using argument 'h'
+sns.swarmplot(x='tip', y='day', data=tip, hue='sex', orient='h')
+plt.ylabe('tip($)')
+plt.show()
+
+
+# box plots or violin plots
+when to use and when not to use
+ - they are better than other plots strip and swarm to represent the sampled data
+ - box plot are beneficial, to show mean, mediam, quartile, 25%, 50% and 75% and count
+
+Using violinplot()
+
+plt.subplot(1,2,1)
+sns.boxplot(x='day', y='tip', data=tips)
+plt.ylabe('tip($)')
+
+plt.subplot(2,2,1)
+sns.violinplot(x='day', y='tip', data=tips)
+plt.ylabe('tip($)')
+
+plt.tight_layout()
+plt.show()
+
+# combining plots (violin plot with swarm plot)
+sns.violinplot(x='day', y='tip', data=tips, inner='None', color='lightgray')
+
+# - by using argument inner=None to disable inner box 
+sns.swarmplot(x='day', y='tip', data=tips, size=4, jitter=True)
+plt.ylabe('tip($)')
+plt.show()
+
+
+
+ 
