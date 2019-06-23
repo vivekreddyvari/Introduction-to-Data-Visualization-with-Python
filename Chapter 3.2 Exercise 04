@@ -9,7 +9,8 @@ You will also visualize the joint distributions separated by continent of origin
 print(auto.head())
 
 # Plot the pairwise joint distributions grouped by 'origin' along with regression lines
-sns.pairplot(auto, hue='origin')
+sns.pairplot(auto, kind='reg', hue='origin')
 
 # Display the plot
 plt.show()
+
