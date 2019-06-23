@@ -1,0 +1,53 @@
+Histogram equalization in images
+
+- sharpening the image
+- will use the technique called histo-gram 
+- medical, astronomy 
+
+# e.g. 01
+orig = plt.imread('low-contrast-moon-hist')
+pixels = orig.flatten()
+plt.hist(pixels, bins=256, range=(0, 256), normed=True, color='blue', alpha=0.3)
+plt.show()
+minval, maxval = orig.min(), orig.max()
+
+# Rescaling the image
+
+minval, maxval = orig.min(), orig.max()
+print(minval, maxval)
+rescaled = (255/(minval-maxval)) * (pixels - minval)
+print(rescaled.min(), rescaled.max())
+plt.imshow('rescaled')
+plt.axis('off')
+plt.show()
+
+Original & rescaled histograms
+plt.hist(orig.flatten(), bins=250, range=(0, 256), normed=True, color='blue', alpha=0.2)
+plt.hist(rescaled.flatten(), bins=250, range=(0, 256), normed=True, color='green', alpha=0.2)
+plt.legend(['original', 'rescaled'])
+plt.show()
+
+Image Histogram and chemoon distribution frequency
+plt.hist(pixels, bins=256, range=(0, 256), normed=True, color='blue', alpha=0.3)
+plt.twinx()
+orig_cdf, bins, patches = plt.hist(pixels, cumulative=True, bins=256, range=(0,256), normed=True, color='red', alpha=0.3)
+plt.title('Image histogram and CDF')
+plt.xlim((0,255))
+plt.show()
+
+Equalizing intensity values
+new_pixels = np.interp(pixels, bins[:-1], orig_cdf*255)
+new = new_pixels.reshape(orig.shape)
+plt.imshow(new)
+plt.axis('off')
+plt.title('Equalised image')
+
+Equalizing histogram & CDF
+plt.hist(pixels, bins=256, range=(0, 256), normed=True, color='blue', alpha=0.3)
+plt.twinx()
+plt.hist(pixels, cumulative=True, bins=256, range=(0,256), normed=True, color='red', alpha=0.1)
+plt.title('Equalized Image histogram and CDF')
+plt.xlim((0,255))
+plt.show()
+
+
