@@ -1,0 +1,31 @@
+Chapter 4.1
+
+Time Series with moving windows
+
+temperature time-series 
+Moving window = refers to a time interval (like day, week, month, year etc.)
+Moving window calculations
+ - Averages
+ - Medians
+ - Standard deviations
+
+Extract information on longer time scales
+plt.plot(smoothed['1d'])
+plt.title('Temperature (2010)')
+plt.xticks(rotation=60)
+plt.show()
+
+viewing all moving averages
+plt.plot(smoothed['2010-01'])
+plt.legend(smoothed.columns)
+plt.title('Temperature Jan (2010)')
+plt.xticks(rotation=60)
+plt.show()
+
+moving standard deviations
+plt.plot(variance['2010-01'])
+plt.legend(smoothed.columns)
+plt.title('Temperature deviations (Jan 2010)')
+plt.xticks(rotation=60)
+plt.show()
+
