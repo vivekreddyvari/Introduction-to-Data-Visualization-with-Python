@@ -1,0 +1,48 @@
+Chapter 4
+---------
+
+Visualising Time Series
+ - Datatime & time series
+ 
+# data frame (weather)
+ - like in pandas indexed with data time
+
+Time series
+ - Pandas time series : datetime as index
+ - Datetime : represents periods or time-stamps
+ - Datatime index : specialized slicing
+   - e.g. weather ['yyyy-mm-dd']
+   - e.g. weather['yyyy-mm': 'yyyy-mm']
+   - e.g. weather['yyyy-mm']	
+Slicing time series
+
+temperature = weather['temperature']
+march_apr = temperature['2007-03':'2007-04']
+march_apr.shape
+
+march_apr.iloc[-4:]
+
+# plotting time series slices
+plt.plot(temperature['2010-03']. color='r', label='temperature']
+dew point = weather['DewPoint']
+plt.plot(dewpoint['2010-01'], color='b', laber='DewPoint')
+plt.legend(loc='upper right')
+plt.xticks(rotation=60)
+plt.show()
+
+# Selecting and formatting dates
+jan = temperature['2010-01']
+dates = jan.index[::96] # pick every 96th day
+print(dates)
+labels = dates.strftime('%b %d') # make formatted labels
+print(labels)
+
+
+plt.plot(temperature['2010-03']. color='r', label='temperature']
+dew point = weather['DewPoint']
+plt.plot(dewpoint['2010-01'], color='b', label='DewPoint')
+plt.legend(loc='upper right')
+plt.xticks(dates, labels, rotation=60)
+plt.show()
+
+ 
